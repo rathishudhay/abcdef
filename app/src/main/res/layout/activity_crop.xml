@@ -12,12 +12,13 @@
 
         <include layout="@layout/toolbar" />
 
-        <com.steelkiwi.cropiwa.CropIwaView
+        <com.sundeep.Rado_Whatsapp_Toolkit.Addons.ImageCropper.NormalCrop.CropIwaView
             android:id="@+id/crop_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            app:ci_dynamic_aspect_ratio="false" />
+            app:ci_dynamic_aspect_ratio="false"
+            />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -29,11 +30,11 @@
 
         <include layout="@layout/pref_card_crop_mode" />
 
-        <include layout="@layout/pref_card_image" />
+<!--        <include layout="@layout/pref_card_image" />-->
 
-        <include layout="@layout/pref_card_save" />
+<!--        <include layout="@layout/pref_card_save" />-->
 
-        <include layout="@layout/pref_card_style" />
+<!--        <include layout="@layout/pref_card_style" />-->
 
 
     </com.yarolegovich.mp.MaterialPreferenceScreen>
@@ -41,6 +42,25 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/AddNewImage"/>
+        android:id="@+id/free_hand_crop"
+        android:text="FreeHand crop"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rotate_image"
+        android:text="Rotate"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/flip_horizontal"
+        android:text="Flip Horizontal"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/flip_vertical"
+        android:text="Flip Vertical"/>
 </LinearLayout>
