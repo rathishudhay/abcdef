@@ -1,2 +1,1 @@
-rootProject.name='Rado_Whatsapp_Toolkit'
-include ':app'
+include ':sample', ':mp4compose'
