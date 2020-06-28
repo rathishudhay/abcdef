@@ -1,1 +1,2 @@
-include ':sample', ':mp4compose'
+rootProject.name='Notification'
+include ':app'
