@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,8 +7,132 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/single_mode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="Single Mode"
+        android:layout_below="@id/minutes_single"/>
+
+    <EditText
+        android:id="@+id/month_single"
+        android:layout_width="100dip"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Month"
+        android:inputType="textPersonName"
+        tools:layout_marginLeft="80dp"
+        tools:layout_marginTop="89dp"
+        android:layout_alignParentTop="true"/>
+
+    <EditText
+        android:layout_below="@id/month_single"
+        android:id="@+id/day_single"
+        android:layout_width="100dip"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Day"
+        android:inputType="textPersonName"
+         />
+
+    <EditText
+        android:id="@+id/hour_single"
+        android:layout_below="@id/day_single"
+        android:layout_width="100dip"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Hours"
+        android:inputType="textPersonName"
+         />
+
+    <EditText
+        android:id="@+id/minutes_single"
+        android:layout_width="100dip"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="minutes"
+        android:inputType="textPersonName"
+        android:layout_below="@id/hour_single"/>
+
+    <EditText
+        android:id="@+id/hour_repeat"
+        android:layout_width="100dip"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Hours"
+        android:inputType="textPersonName"
+        android:layout_below="@id/single_mode"/>
+
+    <EditText
+        android:id="@+id/minutes_repeat"
+        android:layout_width="100dip"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="minutes"
+        android:inputType="textPersonName"
+        android:layout_below="@id/hour_repeat"/>
+
+    <CheckBox
+        android:id="@+id/checkBox_sunday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="S"
+        android:layout_below="@id/minutes_repeat" />
+
+
+    <CheckBox
+        android:id="@+id/checkBox_monday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="M"
+        android:layout_below="@id/checkBox_sunday"/>
+
+    <CheckBox
+        android:id="@+id/checkBox_tuesday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="T"
+        android:layout_below="@id/checkBox_monday"/>
+
+    <CheckBox
+        android:id="@+id/checkBox_wednesday"
+        android:layout_below="@id/checkBox_tuesday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="W" />
+
+    <CheckBox
+        android:id="@+id/checkBox_thursday"
+        android:layout_below="@id/checkBox_wednesday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="T"
+         />
+
+    <CheckBox
+        android:id="@+id/checkBox_friday"
+        android:layout_below="@id/checkBox_thursday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="F"
+        tools:layout_marginLeft="320dp"
+        tools:layout_marginTop="486dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox_saturday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="S"
+        android:layout_below="@id/checkBox_friday" />
+
+
+    <Button
+        android:id="@+id/repeat_mode"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/checkBox_saturday"
+        android:layout_height="wrap_content"
+        android:text="Repeat Mode"
+        tools:layout_marginLeft="157dp"
+        tools:layout_marginTop="575dp" />
+
+
+</RelativeLayout>

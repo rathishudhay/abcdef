@@ -69,7 +69,7 @@ public class NotifyWork extends Worker {
         if(daysString==null){
             System.out.println("inside:"+3);
             sendNotification(id);
-        }else if(daysString.contains((String.valueOf(Calendar.getInstance().get(Calendar.MINUTE)%7)))){
+        }else if(daysString.contains((String.valueOf(Calendar.getInstance().get(Calendar.DAY_OF_WEEK))))){
             System.out.println("inside:"+4);
             sendNotification(id);
         }else{
