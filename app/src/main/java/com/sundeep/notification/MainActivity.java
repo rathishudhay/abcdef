@@ -2,6 +2,7 @@ package com.sundeep.notification;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import androidx.work.Data;
 import androidx.work.ExistingPeriodicWorkPolicy;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     PendingIntent pendingIntent;
     AlarmManager alarmManager;
     Intent alarmIntent;
+    String time;
 
     IntentFilter intentFilter;
 
@@ -56,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     int date=28;
     int hours=21;
     int mins=8;
-    boolean[] days;
+    boolean[] days=null;
 
 
 
@@ -65,7 +67,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        days=new boolean[7];
+//        days=new boolean[7];
+
 
         Button singleButton=(Button)findViewById(R.id.single_mode);
         Button repeatButton=(Button)findViewById(R.id.repeat_mode);
@@ -73,6 +76,13 @@ public class MainActivity extends AppCompatActivity {
         singleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                time=String.valueOf(Calendar.getInstance().getTimeInMillis());
+
+                NOTIFICATION_ID=time;
+                NOTIFICATION_WORK=time;
+
+                System.out.println("time:"+time);
 
                 EditText month_EditText=(EditText)findViewById(R.id.month_single);
                 EditText day_EditText=(EditText)findViewById(R.id.day_single);
@@ -101,9 +111,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                time=String.valueOf(Calendar.getInstance().getTimeInMillis());
+
+                NOTIFICATION_ID=time;
+                NOTIFICATION_WORK=time;
+
+
                 EditText hour_EditText=(EditText)findViewById(R.id.hour_repeat);
                 EditText minute_EditText=(EditText)findViewById(R.id.minutes_repeat);
 
+                days=new boolean[7];
 
                 hours=Integer.valueOf(hour_EditText.getText().toString());
                 mins=Integer.valueOf(minute_EditText.getText().toString());
@@ -212,9 +229,12 @@ public class MainActivity extends AppCompatActivity {
 //        OneTimeWorkRequest notificationWork = new OneTimeWorkRequest.Builder(NotifyWork.class).setInitialDelay(delay, MILLISECONDS).setInputData(data).build();
 
         if(days==null){
+            //NOTIFICATION_WORK=String.valueOf(Calendar.getInstance().getTimeInMillis());
+
             OneTimeWorkRequest notificationWork = new OneTimeWorkRequest.Builder(NotifyWork.class).setInitialDelay(delay, MILLISECONDS).setInputData(data).build();
             String workId=notificationWork.getId().toString();
             System.out.println("inside1:"+workId);
+            System.out.println("delay:"+delay);
             SharedPreferences sharedpreferences = App.getAppContext().getSharedPreferences(workId, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedpreferences.edit();
             editor.putString("id", notificationWork.getId().toString());

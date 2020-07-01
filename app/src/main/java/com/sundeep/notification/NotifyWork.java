@@ -64,7 +64,12 @@ public class NotifyWork extends Worker {
         SharedPreferences sh = App.getAppContext().getSharedPreferences(workId, Context.MODE_PRIVATE);
         System.out.println("ID123:"+sh.getString("id",null)+" :"+workId);
         System.out.println("days:"+sh.getString("days",null));
+
+        System.out.println(((String.valueOf(Calendar.getInstance().get(Calendar.DAY_OF_WEEK)))));
+
         String daysString=sh.getString("days",null);
+
+
 
         if(daysString==null){
             System.out.println("inside:"+3);
